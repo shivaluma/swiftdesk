@@ -24,4 +24,6 @@ jobs:
       - name: Build
         run: swift build
       - name: Test
-        run: swift test
+        # Serial: many tests measure real-time behaviour (stall detection, timeouts), which parallel load on a
+        # hosted VM distorts.
+        run: swift test --no-parallel
