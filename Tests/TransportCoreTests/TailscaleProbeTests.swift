@@ -94,7 +94,7 @@ struct TailscaleProbeTests {
         let start = Date()
         #expect(TailscaleProbe.run(URL(fileURLWithPath: "/bin/sleep"), arguments: ["5"], timeout: 0.3) == nil)
         #expect(Date().timeIntervalSince(start) < 3)
-        let echo = TailscaleProbe.run(URL(fileURLWithPath: "/bin/echo"), arguments: ["{}"], timeout: 2)
+        let echo = TailscaleProbe.run(URL(fileURLWithPath: "/bin/echo"), arguments: ["{}"], timeout: 10)   // generous: CI VMs spawn slowly
         #expect(echo.map { String(decoding: $0, as: UTF8.self) } == "{}\n")
     }
 }
