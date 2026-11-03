@@ -1,0 +1,79 @@
+== PipelineBench self-test ==
+PASS options: defaults
+PASS options: default values match the spec
+PASS options: keyframe duplication off by default
+PASS options: FEC off by default
+PASS options: --fec is adaptive
+PASS options: --fec-k fixes K
+PASS options: FEC RESULT labels
+PASS options: every flag, both spellings
+PASS options: rejects odd width
+PASS options: rejects zero height
+PASS options: rejects loss > 100
+PASS options: rejects NaN loss
+PASS options: rejects unknown mode
+PASS options: rejects missing value
+PASS options: rejects unknown flag
+PASS options: rejects FEC K 0
+PASS options: rejects FEC K > 255
+PASS options: --self-test
+PASS splitmix64: reference output for seed 0
+PASS splitmix64: same seed, same stream
+PASS splitmix64: unit doubles in [0,1)
+PASS loss: 0% never drops
+PASS loss: 100% always drops
+PASS loss: 1.0% rate within 10%
+PASS loss: 3.0% rate within 10%
+PASS loss: reproducible with the same seed
+PASS samples: non-finite ignored, matches RollingStats
+PASS samples: nearest-rank p50/p95/max
+PASS samples: ns→ms conversion, reversed interval clamps to 0
+PASS samples: empty summary
+PASS samples: p99 nearest-rank, consistent with RollingStats
+PASS triangle wave bounces within 0...span
+PASS triangle wave never leaves range
+PASS synthetic: 420v 1280x720
+PASS synthetic: IOSurface-backed
+PASS synthetic: BT.709 matrix attachment
+PASS synthetic: luma within video range
+PASS synthetic: content has contrast
+PASS synthetic: consecutive frames differ
+PASS synthetic: pool allocation threshold enforced (newest-frame-wins upstream)
+PASS synthetic: 60 Hz timer delivers ~30 frames in 0.5 s
+PASS synthetic: no pool exhaustion when buffers are released promptly
+PASS synthetic: no frames after stop()
+PASS report: derived fps / kbps
+PASS report: RESULT prefix
+PASS report: every field is key=value with no spaces
+PASS report: keys unique
+PASS report: stage keys, sanitized model, flags
+PASS report: FEC keys present
+PASS report: RESULT is the last line; rejected props flagged
+PASS machine: sysctl hw.model readable
+PASS codec: encoder accepts a 420v IOSurface buffer
+PASS codec: first frame is an IDR with in-band parameter sets
+PASS wire: datagrams within 1150 B
+PASS wire: reassembled access unit is byte-identical
+PASS wire: FEC rebuilds dropped keyframe fragments byte-identically
+PASS codec: decoded size matches
+PASS codec: decoded luma resembles the source
+info: keyframe 53969 B, 49 datagrams, luma mean abs diff 0.56
+info: RESULT mode=synthetic model=Mac16,11 macos=27.0.1 width=1280 height=720 fps_target=60 bitrate_target_kbps=3000 loss_pct=0 dup_keyframes=0 fec=off seconds=2.01 generated=121 submitted=121 dropped_backpressure=0 encoded=93 decoded=93 encode_fps=46.38 video_kbps=2960.1 wire_kbps=3050.9 keyframes=1 src_encdone_p50_ms=3.530 src_encdone_p95_ms=6.475 src_encdone_p99_ms=16.404 src_encdone_max_ms=16.404 vt_encode_p50_ms=3.500 vt_encode_p95_ms=6.417 vt_encode_p99_ms=16.394 vt_encode_max_ms=16.394 encdone_pkt_p50_ms=0.076 encdone_pkt_p95_ms=0.159 encdone_pkt_p99_ms=0.472 encdone_pkt_max_ms=0.472 pkt_reasm_p50_ms=0.021 pkt_reasm_p95_ms=0.052 pkt_reasm_p99_ms=0.889 pkt_reasm_max_ms=0.889 reasm_decdone_p50_ms=1.024 reasm_decdone_p95_ms=1.886 reasm_decdone_p99_ms=4.459 reasm_decdone_max_ms=4.459 src_decdone_p50_ms=5.049 src_decdone_p95_ms=8.062 src_decdone_p99_ms=20.929 src_decdone_max_ms=20.929 hw_encoder=true low_latency=true hw_decoder=true decoder_sessions=1 vt_dropped=28 waiting_submitted=0 refreshes=0 datagrams_dropped=0 frames_lost=0 keyframe_requests=0 frames_gated=0 recovery_count=0 recovery_p50_ms=0.000 parity_datagrams=0 fragments_recovered=0 fec_k_mean=0.00 decode_fps=46.38 cpu_pct=5.7
+PASS pipeline 0%: encodes ~60 fps
+PASS pipeline 0%: every encoded frame decoded
+PASS pipeline 0%: no loss, gating or keyframe requests
+PASS pipeline 0%: starts with a keyframe
+PASS pipeline 0%: end-to-end latency sampled per frame
+PASS pipeline 0%: frame accounting adds up
+info: RESULT mode=synthetic model=Mac16,11 macos=27.0.1 width=1280 height=720 fps_target=60 bitrate_target_kbps=3000 loss_pct=1 dup_keyframes=0 fec=off seconds=4.00 generated=241 submitted=240 dropped_backpressure=1 encoded=161 decoded=60 encode_fps=40.21 video_kbps=2993.5 wire_kbps=3084.4 keyframes=12 src_encdone_p50_ms=3.532 src_encdone_p95_ms=6.867 src_encdone_p99_ms=9.009 src_encdone_max_ms=26.541 vt_encode_p50_ms=3.480 vt_encode_p95_ms=6.793 vt_encode_p99_ms=8.958 vt_encode_max_ms=26.504 encdone_pkt_p50_ms=0.073 encdone_pkt_p95_ms=0.195 encdone_pkt_p99_ms=0.463 encdone_pkt_max_ms=0.468 pkt_reasm_p50_ms=0.024 pkt_reasm_p95_ms=0.045 pkt_reasm_p99_ms=0.147 pkt_reasm_max_ms=0.183 reasm_decdone_p50_ms=1.252 reasm_decdone_p95_ms=2.822 reasm_decdone_p99_ms=5.449 reasm_decdone_max_ms=5.449 src_decdone_p50_ms=5.355 src_decdone_p95_ms=9.116 src_decdone_p99_ms=10.744 src_decdone_max_ms=10.744 hw_encoder=true low_latency=true hw_decoder=true decoder_sessions=1 vt_dropped=79 waiting_submitted=0 refreshes=0 datagrams_dropped=17 frames_lost=17 keyframe_requests=11 frames_gated=84 recovery_count=8 recovery_p50_ms=36.788 parity_datagrams=0 fragments_recovered=0 fec_k_mean=0.00 decode_fps=14.98 cpu_pct=5.2
+PASS pipeline 1%: loss is detected as frame loss
+PASS pipeline 1%: loss triggers keyframe requests and recovery IDRs
+PASS pipeline 1%: decoding recovers after loss
+PASS pipeline 1%: every encoded frame is decoded, gated or lost
+PASS pipeline 1%: every submitted frame is encoded or reported dropped by VideoToolbox
+PASS pipeline 1%: recovery IDRs are a subset of keyframes
+info: RESULT mode=synthetic model=Mac16,11 macos=27.0.1 width=1280 height=720 fps_target=60 bitrate_target_kbps=3000 loss_pct=1 dup_keyframes=0 fec=auto seconds=4.00 generated=241 submitted=240 dropped_backpressure=1 encoded=240 decoded=238 encode_fps=59.97 video_kbps=2975.5 wire_kbps=4226.8 keyframes=2 src_encdone_p50_ms=6.152 src_encdone_p95_ms=6.618 src_encdone_p99_ms=7.496 src_encdone_max_ms=28.958 vt_encode_p50_ms=6.118 vt_encode_p95_ms=6.559 vt_encode_p99_ms=7.428 vt_encode_max_ms=28.938 encdone_pkt_p50_ms=0.089 encdone_pkt_p95_ms=0.173 encdone_pkt_p99_ms=0.263 encdone_pkt_max_ms=0.351 pkt_reasm_p50_ms=0.030 pkt_reasm_p95_ms=0.047 pkt_reasm_p99_ms=0.076 pkt_reasm_max_ms=0.157 reasm_decdone_p50_ms=1.289 reasm_decdone_p95_ms=1.571 reasm_decdone_p99_ms=1.825 reasm_decdone_max_ms=6.843 src_decdone_p50_ms=7.551 src_decdone_p95_ms=8.252 src_decdone_p99_ms=9.065 src_decdone_max_ms=36.021 hw_encoder=true low_latency=true hw_decoder=true decoder_sessions=1 vt_dropped=0 waiting_submitted=0 refreshes=0 datagrams_dropped=25 frames_lost=1 keyframe_requests=1 frames_gated=1 recovery_count=1 recovery_p50_ms=18.302 parity_datagrams=504 fragments_recovered=18 fec_k_mean=3.75 decode_fps=59.47 cpu_pct=7.3
+PASS pipeline 1% FEC: parity datagrams sent
+PASS pipeline 1% FEC: lost fragments rebuilt from parity
+PASS pipeline 1% FEC: every encoded frame is decoded, gated or lost
+self-test: 73 passed, 0 failed

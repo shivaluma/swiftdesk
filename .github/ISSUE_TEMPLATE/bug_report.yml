@@ -1,0 +1,41 @@
+name: Bug report
+description: Something isn't working as expected
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SwiftDesk version
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS versions (Host and Viewer)
+      placeholder: "Host: macOS 26.3 (Apple silicon), Viewer: macOS 15.6 (Intel)"
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: How are the two Macs connected?
+      options:
+        - Same local network (wired)
+        - Same local network (Wi-Fi)
+        - Tailscale
+        - Other VPN / port forwarding
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: If it's about lag or quality, open the stats overlay during a session and paste or screenshot it. Remove anything you consider private.

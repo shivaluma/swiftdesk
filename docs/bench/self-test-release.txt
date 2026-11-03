@@ -1,0 +1,67 @@
+== PipelineBench self-test ==
+PASS options: defaults
+PASS options: default values match the spec
+PASS options: keyframe duplication off by default
+PASS options: every flag, both spellings
+PASS options: rejects odd width
+PASS options: rejects zero height
+PASS options: rejects loss > 100
+PASS options: rejects NaN loss
+PASS options: rejects unknown mode
+PASS options: rejects missing value
+PASS options: rejects unknown flag
+PASS options: --self-test
+PASS splitmix64: reference output for seed 0
+PASS splitmix64: same seed, same stream
+PASS splitmix64: unit doubles in [0,1)
+PASS loss: 0% never drops
+PASS loss: 100% always drops
+PASS loss: 1.0% rate within 10%
+PASS loss: 3.0% rate within 10%
+PASS loss: reproducible with the same seed
+PASS samples: non-finite ignored, matches RollingStats
+PASS samples: nearest-rank p50/p95/max
+PASS samples: ns→ms conversion, reversed interval clamps to 0
+PASS samples: empty summary
+PASS samples: p99 nearest-rank, consistent with RollingStats
+PASS triangle wave bounces within 0...span
+PASS triangle wave never leaves range
+PASS synthetic: 420v 1280x720
+PASS synthetic: IOSurface-backed
+PASS synthetic: BT.709 matrix attachment
+PASS synthetic: luma within video range
+PASS synthetic: content has contrast
+PASS synthetic: consecutive frames differ
+PASS synthetic: pool allocation threshold enforced (newest-frame-wins upstream)
+PASS synthetic: 60 Hz timer delivers ~30 frames in 0.5 s
+PASS synthetic: no pool exhaustion when buffers are released promptly
+PASS synthetic: no frames after stop()
+PASS report: derived fps / kbps
+PASS report: RESULT prefix
+PASS report: every field is key=value with no spaces
+PASS report: keys unique
+PASS report: stage keys, sanitized model, flags
+PASS report: RESULT is the last line; rejected props flagged
+PASS machine: sysctl hw.model readable
+PASS codec: encoder accepts a 420v IOSurface buffer
+PASS codec: first frame is an IDR with in-band parameter sets
+PASS wire: datagrams within 1150 B
+PASS wire: reassembled access unit is byte-identical
+PASS codec: decoded size matches
+PASS codec: decoded luma resembles the source
+info: keyframe 53969 B, 49 datagrams, luma mean abs diff 0.56
+info: RESULT mode=synthetic model=Mac16,11 macos=27.0.1 width=1280 height=720 fps_target=60 bitrate_target_kbps=3000 loss_pct=0 dup_keyframes=0 seconds=2.00 generated=121 submitted=121 dropped_backpressure=0 encoded=93 decoded=93 encode_fps=46.45 video_kbps=2964.5 wire_kbps=3055.4 keyframes=1 src_encdone_p50_ms=5.697 src_encdone_p95_ms=6.527 src_encdone_p99_ms=15.145 src_encdone_max_ms=15.145 vt_encode_p50_ms=5.679 vt_encode_p95_ms=6.500 vt_encode_p99_ms=15.140 vt_encode_max_ms=15.140 encdone_pkt_p50_ms=0.067 encdone_pkt_p95_ms=0.137 encdone_pkt_p99_ms=3.144 encdone_pkt_max_ms=3.144 pkt_reasm_p50_ms=0.025 pkt_reasm_p95_ms=0.040 pkt_reasm_p99_ms=0.060 pkt_reasm_max_ms=0.060 reasm_decdone_p50_ms=1.094 reasm_decdone_p95_ms=1.630 reasm_decdone_p99_ms=3.508 reasm_decdone_max_ms=3.508 src_decdone_p50_ms=6.915 src_decdone_p95_ms=8.341 src_decdone_p99_ms=18.714 src_decdone_max_ms=18.714 hw_encoder=true low_latency=true hw_decoder=true decoder_sessions=1 vt_dropped=28 datagrams_dropped=0 frames_lost=0 keyframe_requests=0 frames_gated=0 recovery_count=0 recovery_p50_ms=0.000 cpu_pct=5.6
+PASS pipeline 0%: encodes ~60 fps
+PASS pipeline 0%: every encoded frame decoded
+PASS pipeline 0%: no loss, gating or keyframe requests
+PASS pipeline 0%: starts with a keyframe
+PASS pipeline 0%: end-to-end latency sampled per frame
+PASS pipeline 0%: frame accounting adds up
+info: RESULT mode=synthetic model=Mac16,11 macos=27.0.1 width=1280 height=720 fps_target=60 bitrate_target_kbps=3000 loss_pct=1 dup_keyframes=0 seconds=4.01 generated=241 submitted=240 dropped_backpressure=1 encoded=160 decoded=58 encode_fps=39.93 video_kbps=3022.2 wire_kbps=3113.9 keyframes=12 src_encdone_p50_ms=5.125 src_encdone_p95_ms=6.320 src_encdone_p99_ms=6.680 src_encdone_max_ms=27.524 vt_encode_p50_ms=5.120 vt_encode_p95_ms=6.275 vt_encode_p99_ms=6.650 vt_encode_max_ms=27.505 encdone_pkt_p50_ms=0.046 encdone_pkt_p95_ms=0.097 encdone_pkt_p99_ms=0.147 encdone_pkt_max_ms=0.795 pkt_reasm_p50_ms=0.017 pkt_reasm_p95_ms=0.033 pkt_reasm_p99_ms=0.041 pkt_reasm_max_ms=0.046 reasm_decdone_p50_ms=0.935 reasm_decdone_p95_ms=2.604 reasm_decdone_p99_ms=6.310 reasm_decdone_max_ms=6.310 src_decdone_p50_ms=5.488 src_decdone_p95_ms=8.832 src_decdone_p99_ms=9.178 src_decdone_max_ms=9.178 hw_encoder=true low_latency=true hw_decoder=true decoder_sessions=1 vt_dropped=80 datagrams_dropped=17 frames_lost=17 keyframe_requests=11 frames_gated=85 recovery_count=8 recovery_p50_ms=35.956 cpu_pct=3.1
+PASS pipeline 1%: loss is detected as frame loss
+PASS pipeline 1%: loss triggers keyframe requests and recovery IDRs
+PASS pipeline 1%: decoding recovers after loss
+PASS pipeline 1%: every encoded frame is decoded, gated or lost
+PASS pipeline 1%: every submitted frame is encoded or reported dropped by VideoToolbox
+PASS pipeline 1%: recovery IDRs are a subset of keyframes
+self-test: 62 passed, 0 failed

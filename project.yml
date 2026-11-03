@@ -1,0 +1,90 @@
+# XcodeGen spec for SwiftDesk.xcodeproj (`xcodegen generate` from the repository root).
+#
+# The Swift package (Package.swift) is the source of truth for every module. The Xcode project only adds what
+# SwiftPM cannot express: a real .app bundle with Info.plist, entitlements and code signing, plus a unit-test
+# bundle for AppUI (Tests/AppUITests), which Package.swift does not declare yet.
+name: SwiftDesk
+
+options:
+  bundleIdPrefix: com.swiftdesk
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+
+settings:
+  base:
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    DEAD_CODE_STRIPPING: YES
+
+packages:
+  SwiftDesk:
+    path: .
+
+targets:
+  SwiftDesk:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/SwiftDeskApp
+      # App icon (CFBundleIconFile = AppIcon); regenerate with `swift scripts/make-icon.swift`.
+      - path: Resources/AppIcon.icns
+        buildPhase: resources
+    dependencies:
+      - package: SwiftDesk
+        product: AppUI
+    settings:
+      base:
+        PRODUCT_NAME: SwiftDesk
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftdesk.app
+        INFOPLIST_FILE: Resources/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Resources/SwiftDesk.entitlements
+        # "Sign to Run Locally". For a stable TCC identity use your own certificate; see README.md.
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        DEVELOPMENT_TEAM: ""
+        ENABLE_HARDENED_RUNTIME: NO
+        MARKETING_VERSION: "0.2.0"
+        CURRENT_PROJECT_VERSION: "5"
+        COMBINE_HIDPI_IMAGES: YES
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../Frameworks"
+
+  SwiftDeskTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests/AppUITests
+    dependencies:
+      - package: SwiftDesk
+        product: AppUI
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftdesk.app.tests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        DEVELOPMENT_TEAM: ""
+
+schemes:
+  SwiftDesk:
+    build:
+      targets:
+        SwiftDesk: all
+        SwiftDeskTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - SwiftDeskTests
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

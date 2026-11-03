@@ -1,0 +1,5 @@
+PipelineBench: Screen Recording permission is not granted to this process (or its parent terminal).
+Capture mode does not request it. Grant it in System Settings > Privacy & Security >
+Screen & System Audio Recording for the app running this command, relaunch it, and retry.
+Synthetic mode (--mode synthetic) needs no permission.
+RESULT mode=capture status=permission_missing

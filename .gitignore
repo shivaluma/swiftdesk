@@ -1,0 +1,14 @@
+# SwiftPM / Xcode build products
+.build/
+build/
+DerivedData/
+.swiftpm/
+dist/
+
+# Per-user Xcode state (anywhere in the tree)
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# macOS Finder metadata
+.DS_Store

@@ -1,0 +1,52 @@
+== SwiftDesk PipelineBench (Milestone A, headless loopback) ==
+machine        Mac16,11  Apple M4 Pro  12 cores
+macOS          27.0.1 (26A434)
+mode           synthetic: generated IOSurface 420v frames (pool of 4, CPU-filled)
+resolution     1280x720 @ 60 fps target, 3000 kbps target
+duration       10.00 s, datagram size 1150 B, loss 0.0% (seed 403286589422), keyframe datagrams sent twice, FEC auto
+process CPU    6.9% of one core (includes synthetic fill / harness)
+
+-- frames --
+generated                601
+submitted to encoder     600
+dropped (backpressure)   1   one-in-flight rule (0 of them encoded next from the latest-frame slot)
+dropped by VideoToolbox  13
+encoded                  587   (58.69 fps effective)
+keyframes                3   (0 in response to requests)
+reassembled              587
+decoded                  587   (58.69 fps)
+
+-- bitrate --
+video produced           2951.5 kbps (3689827 B encoded)
+on the wire              3745.9 kbps incl. 32 B headers (4357 datagrams)
+
+-- latency (ms, whole run; nearest-rank) --
+stage                              count      p50      p95      p99      max     mean
+source -> encodeDone                  587    5.433    6.378    6.651   25.542    5.073
+  of which VT submit -> encodeDone    587    5.393    6.319    6.590   25.524    5.038
+encodeDone -> packetized              587    0.083    0.135    0.209    0.293    0.086
+packetized -> reassembled (no net)    587    0.028    0.043    0.080   31.366    0.109
+reassembled -> decodeDone             587    1.193    1.565    1.776   41.758    1.240
+source -> decodeDone (end-to-end)     587    6.839    7.941    8.610   67.427    6.509
+(harness) synthetic CPU fill          601    0.232    0.325        -    0.473    0.228
+source->decodeDone excludes network transit and render/present (no display in this bench).
+max includes one-off warm-up (first IDR, decoder session creation); p99 shows the recurring tail.
+
+-- encoder / decoder --
+hardware encoder         true (session required HW: true)
+low-latency rate control true
+profile level            H264_ConstrainedBaseline_AutoLevel
+applied properties       AllowFrameReordering=yes AverageBitRate=yes DataRateLimits=yes ExpectedFrameRate=yes MaxFrameDelayCount=NO MaxKeyFrameInterval=yes MaxKeyFrameIntervalDuration=yes MaximumRealTimeFrameRate=NO PrepareToEncodeFrames=yes PrioritizeEncodingSpeedOverQuality=NO ProfileLevel=yes RealTime=yes
+hardware decoder         true, decoder RealTime applied true, 1 decoder session(s) created
+
+-- loss / recovery --
+datagrams dropped        0 (0.00% measured)
+frames lost              0 in 0 loss events
+keyframe requests        0 (0 from gate tick: deferred by rate limit or re-sent)
+frames gated             0 (complete but dropped while awaiting a keyframe)
+FEC                      auto: 673 parity datagrams on 587 frames, mean K 8.77, final K 10
+FEC at the viewer        0 fragments rebuilt, 685 parity received (685 after their frame completed, 0 unused, 0 malformed)
+recovery time            n=0
+note: synthetic content: scrolling gradient + bouncing box + per-frame noise strip; real desktop content compresses differently
+
+RESULT mode=synthetic model=Mac16,11 macos=27.0.1 width=1280 height=720 fps_target=60 bitrate_target_kbps=3000 loss_pct=0 dup_keyframes=1 fec=auto seconds=10.00 generated=601 submitted=600 dropped_backpressure=1 encoded=587 decoded=587 encode_fps=58.69 video_kbps=2951.5 wire_kbps=3745.9 keyframes=3 src_encdone_p50_ms=5.433 src_encdone_p95_ms=6.378 src_encdone_p99_ms=6.651 src_encdone_max_ms=25.542 vt_encode_p50_ms=5.393 vt_encode_p95_ms=6.319 vt_encode_p99_ms=6.590 vt_encode_max_ms=25.524 encdone_pkt_p50_ms=0.083 encdone_pkt_p95_ms=0.135 encdone_pkt_p99_ms=0.209 encdone_pkt_max_ms=0.293 pkt_reasm_p50_ms=0.028 pkt_reasm_p95_ms=0.043 pkt_reasm_p99_ms=0.080 pkt_reasm_max_ms=31.366 reasm_decdone_p50_ms=1.193 reasm_decdone_p95_ms=1.565 reasm_decdone_p99_ms=1.776 reasm_decdone_max_ms=41.758 src_decdone_p50_ms=6.839 src_decdone_p95_ms=7.941 src_decdone_p99_ms=8.610 src_decdone_max_ms=67.427 hw_encoder=true low_latency=true hw_decoder=true decoder_sessions=1 vt_dropped=13 waiting_submitted=0 refreshes=0 datagrams_dropped=0 frames_lost=0 keyframe_requests=0 frames_gated=0 recovery_count=0 recovery_p50_ms=0.000 parity_datagrams=673 fragments_recovered=0 fec_k_mean=8.77 decode_fps=58.69 cpu_pct=6.9

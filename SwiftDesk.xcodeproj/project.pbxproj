@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0566A8CC08E3BFCF8DCF599A /* PresentationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82421C0C4A8E452E7F0CA492 /* PresentationTests.swift */; };
+		05B84D1DB9702AB2E448E2C8 /* SwiftDeskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C2C7F5CB767DE66B8A7B70 /* SwiftDeskApp.swift */; };
+		5D1A7C0E2B4F4E19A0C3D7B1 /* LoginItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2B6F3A1C7D4B08B5E4A2C6 /* LoginItemTests.swift */; };
+		11707FC760B8C14A393B8FB2 /* ViewSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CC1F924A544DEB20299782 /* ViewSmokeTests.swift */; };
+		2A2420DBFE6F9F6CAA74F914 /* FormattingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CE2A4B9037381312227E4B /* FormattingTests.swift */; };
+		3A742C69CA7EC5F359DB4578 /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = 401E3272F4DD04F2FAE8E878 /* AppUI */; };
+		77FCB477BE70BCEA4359877E /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F323C1137BD7BD673BC132BB /* AppModelTests.swift */; };
+		CEA1E85C0AB648DE9E69AB89 /* ConnectTargetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3384C47D3310BFDCC05AC10 /* ConnectTargetTests.swift */; };
+		FCC9C0DE7FB55C9EB524E0DA /* AppUI in Frameworks */ = {isa = PBXBuildFile; productRef = CF49CAC85451A4D371F44E7F /* AppUI */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		33EF82A75CCEECB81C224B36 /* SwiftDesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A26BD33C2A5AEC3D8E1A1BD /* SwiftDesk */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftDesk; path = .; sourceTree = SOURCE_ROOT; };
+		62CE2A4B9037381312227E4B /* FormattingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattingTests.swift; sourceTree = "<group>"; };
+		9E2B6F3A1C7D4B08B5E4A2C6 /* LoginItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemTests.swift; sourceTree = "<group>"; };
+		66CC1F924A544DEB20299782 /* ViewSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSmokeTests.swift; sourceTree = "<group>"; };
+		82421C0C4A8E452E7F0CA492 /* PresentationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTests.swift; sourceTree = "<group>"; };
+		D3384C47D3310BFDCC05AC10 /* ConnectTargetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTargetTests.swift; sourceTree = "<group>"; };
+		D9CD4FD0437E3A5A6083CDAA /* SwiftDeskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftDeskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0C2C7F5CB767DE66B8A7B70 /* SwiftDeskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDeskApp.swift; sourceTree = "<group>"; };
+		F323C1137BD7BD673BC132BB /* AppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C7D24E0091C47ABE3DE2982 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A742C69CA7EC5F359DB4578 /* AppUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D98C0653D155839C49F8D33E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCC9C0DE7FB55C9EB524E0DA /* AppUI in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00BFBFCADFCED9775FDD2865 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33EF82A75CCEECB81C224B36 /* SwiftDesk.app */,
+				D9CD4FD0437E3A5A6083CDAA /* SwiftDeskTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39C94B3C22D5E8EBF49628BD = {
+			isa = PBXGroup;
+			children = (
+				8575F2B4CEB33576A585AD60 /* Packages */,
+				BD079088259F7CE8991CDCA7 /* Sources */,
+				B1F4DBEFDB23A576A11188D5 /* Tests */,
+				00BFBFCADFCED9775FDD2865 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83D5AFBA1988853FF3FB2BB5 /* AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F323C1137BD7BD673BC132BB /* AppModelTests.swift */,
+				D3384C47D3310BFDCC05AC10 /* ConnectTargetTests.swift */,
+				62CE2A4B9037381312227E4B /* FormattingTests.swift */,
+				9E2B6F3A1C7D4B08B5E4A2C6 /* LoginItemTests.swift */,
+				82421C0C4A8E452E7F0CA492 /* PresentationTests.swift */,
+				66CC1F924A544DEB20299782 /* ViewSmokeTests.swift */,
+			);
+			path = AppUITests;
+			sourceTree = "<group>";
+		};
+		8575F2B4CEB33576A585AD60 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3A26BD33C2A5AEC3D8E1A1BD /* SwiftDesk */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		B1F4DBEFDB23A576A11188D5 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				83D5AFBA1988853FF3FB2BB5 /* AppUITests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BD079088259F7CE8991CDCA7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CFB7DFEA4CC4928C9B48FFB7 /* SwiftDeskApp */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CFB7DFEA4CC4928C9B48FFB7 /* SwiftDeskApp */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2C7F5CB767DE66B8A7B70 /* SwiftDeskApp.swift */,
+			);
+			path = SwiftDeskApp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A4C296B904A6E9672F524E6 /* SwiftDeskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD444BAB4DEB66146F896C7E /* Build configuration list for PBXNativeTarget "SwiftDeskTests" */;
+			buildPhases = (
+				A67E22274B04AC2C7EE46E2A /* Sources */,
+				D98C0653D155839C49F8D33E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDeskTests;
+			packageProductDependencies = (
+				CF49CAC85451A4D371F44E7F /* AppUI */,
+			);
+			productName = SwiftDeskTests;
+			productReference = D9CD4FD0437E3A5A6083CDAA /* SwiftDeskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DB8D406121C691008067D8C6 /* SwiftDesk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D860F02F03E6E6079340C6A4 /* Build configuration list for PBXNativeTarget "SwiftDesk" */;
+			buildPhases = (
+				88C664117316D5E303A56B3A /* Sources */,
+				3C7D24E0091C47ABE3DE2982 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDesk;
+			packageProductDependencies = (
+				401E3272F4DD04F2FAE8E878 /* AppUI */,
+			);
+			productName = SwiftDesk;
+			productReference = 33EF82A75CCEECB81C224B36 /* SwiftDesk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		865EA7BD3D2B15591E830B80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					4A4C296B904A6E9672F524E6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					DB8D406121C691008067D8C6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 73D956FCC237464DCE8BF5FD /* Build configuration list for PBXProject "SwiftDesk" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 39C94B3C22D5E8EBF49628BD;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7EFAFF17F1CB80E35642AEC4 /* XCLocalSwiftPackageReference "." */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 00BFBFCADFCED9775FDD2865 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB8D406121C691008067D8C6 /* SwiftDesk */,
+				4A4C296B904A6E9672F524E6 /* SwiftDeskTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		88C664117316D5E303A56B3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B84D1DB9702AB2E448E2C8 /* SwiftDeskApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A67E22274B04AC2C7EE46E2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				77FCB477BE70BCEA4359877E /* AppModelTests.swift in Sources */,
+				CEA1E85C0AB648DE9E69AB89 /* ConnectTargetTests.swift in Sources */,
+				2A2420DBFE6F9F6CAA74F914 /* FormattingTests.swift in Sources */,
+				0566A8CC08E3BFCF8DCF599A /* PresentationTests.swift in Sources */,
+				5D1A7C0E2B4F4E19A0C3D7B1 /* LoginItemTests.swift in Sources */,
+				11707FC760B8C14A393B8FB2 /* ViewSmokeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0AF708C05A221122A7488A50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		506D41AB6AF59CC5B825CAD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdesk.app.tests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		59950913D22024A37EC3B54C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdesk.app.tests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6D7DA406B006F054771E853B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		820791B1CDE1617CEFD37737 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/SwiftDesk.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdesk.app;
+				PRODUCT_NAME = SwiftDesk;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E7AF77F19CC509405301147F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Resources/SwiftDesk.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 0.2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftdesk.app;
+				PRODUCT_NAME = SwiftDesk;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73D956FCC237464DCE8BF5FD /* Build configuration list for PBXProject "SwiftDesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AF708C05A221122A7488A50 /* Debug */,
+				6D7DA406B006F054771E853B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D860F02F03E6E6079340C6A4 /* Build configuration list for PBXNativeTarget "SwiftDesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7AF77F19CC509405301147F /* Debug */,
+				820791B1CDE1617CEFD37737 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DD444BAB4DEB66146F896C7E /* Build configuration list for PBXNativeTarget "SwiftDeskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59950913D22024A37EC3B54C /* Debug */,
+				506D41AB6AF59CC5B825CAD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		7EFAFF17F1CB80E35642AEC4 /* XCLocalSwiftPackageReference "." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = .;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		401E3272F4DD04F2FAE8E878 /* AppUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppUI;
+		};
+		CF49CAC85451A4D371F44E7F /* AppUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 865EA7BD3D2B15591E830B80 /* Project object */;
+}
