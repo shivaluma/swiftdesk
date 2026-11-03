@@ -79,6 +79,9 @@ public enum TailscaleProbe {
             buffer.withLock { $0 = data }
             readDone.signal()
         }
+        // Installed before `run()` so an instantly exiting child cannot finish before the handler exists.
+        let exited = DispatchSemaphore(value: 0)
+        process.terminationHandler = { _ in exited.signal() }
         do {
             try process.run()
         } catch {
@@ -86,15 +89,14 @@ public enum TailscaleProbe {
             return nil
         }
         try? stdout.fileHandleForWriting.close()
-        let exited = DispatchSemaphore(value: 0)
-        process.terminationHandler = { _ in exited.signal() }
-        if !process.isRunning { exited.signal() }
-        if exited.wait(timeout: .now() + timeout) == .timedOut {
+        let deadline = DispatchTime.now() + timeout
+        if exited.wait(timeout: deadline) == .timedOut {
             process.terminate()
             _ = readDone.wait(timeout: .now() + 1)
             return nil
         }
-        guard readDone.wait(timeout: .now() + 1) == .success, process.terminationStatus == 0 else { return nil }
+        // The reader shares the overall deadline (at least 1 s): on a busy machine its block can start late.
+        guard readDone.wait(timeout: max(deadline, .now() + 1)) == .success, process.terminationStatus == 0 else { return nil }
         return buffer.withLock { $0 }
     }
 
