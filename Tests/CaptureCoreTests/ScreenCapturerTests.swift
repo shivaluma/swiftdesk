@@ -73,26 +73,30 @@ struct ScreenCapturerLifecycleTests {
 struct AsyncSerialGateTests {
     @Test("Critical sections never overlap, even across suspension points")
     func mutualExclusion() async {
+        // A Sendable reference box: Swift 6.3 rejects capturing a local `Atomic` in `addTask`'s `sending` closure.
+        final class Counters: Sendable {
+            let inside = Atomic<Int>(0)
+            let maxInside = Atomic<Int>(0)
+            let completed = Atomic<Int>(0)
+        }
         let gate = AsyncSerialGate()
-        let inside = Atomic<Int>(0)
-        let maxInside = Atomic<Int>(0)
-        let completed = Atomic<Int>(0)
+        let counters = Counters()
         await withTaskGroup(of: Void.self) { group in
             for _ in 0..<50 {
                 group.addTask {
                     await gate.acquire()
-                    let now = inside.wrappingAdd(1, ordering: .sequentiallyConsistent).newValue
-                    _ = maxInside.max(now, ordering: .sequentiallyConsistent)
+                    let now = counters.inside.wrappingAdd(1, ordering: .sequentiallyConsistent).newValue
+                    _ = counters.maxInside.max(now, ordering: .sequentiallyConsistent)
                     await Task.yield()
                     try? await Task.sleep(nanoseconds: 100_000)
-                    inside.wrappingSubtract(1, ordering: .sequentiallyConsistent)
-                    completed.wrappingAdd(1, ordering: .relaxed)
+                    counters.inside.wrappingSubtract(1, ordering: .sequentiallyConsistent)
+                    counters.completed.wrappingAdd(1, ordering: .relaxed)
                     gate.release()
                 }
             }
         }
-        let peak = maxInside.load(ordering: .relaxed)
-        let done = completed.load(ordering: .relaxed)
+        let peak = counters.maxInside.load(ordering: .relaxed)
+        let done = counters.completed.load(ordering: .relaxed)
         #expect(peak == 1)
         #expect(done == 50)
     }
